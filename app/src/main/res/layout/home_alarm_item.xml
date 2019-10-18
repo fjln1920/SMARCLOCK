@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="15dp">
+    
+    
+    <View
+        android:id="@+id/alarm_item_label_color"
+        android:layout_width="6dp"
+        android:background="@drawable/alarm_item_blue_label"
+        android:layout_height="100dp"/>
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/alarm_item_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="03:20am"
+            android:textStyle="bold"
+            android:textColor="@color/colorGray"
+            android:textSize="28dp"
+            android:fontFamily="@font/museo"/>
+
+
+        <TextView
+            android:id="@+id/alarm_item_week_days"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="S | M | TH"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/colorGray"
+            android:textSize="16dp"
+            android:fontFamily="@font/museo"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/alarm_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wake up!"
+            android:textStyle="bold"
+            android:textColor="@color/colorGray"
+            android:textSize="14dp"
+            android:fontFamily="@font/museo"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+    
+    
+    
+
+</LinearLayout>

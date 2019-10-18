@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Smarclock</string>
+    <string name="Alarms">Alarms</string>
+    <string name="active_alarm">Active Alarm</string>
+    <string name="saved_alarm">Saved Alarms</string>
+    <string name="btn_add">Add</string>
 </resources>

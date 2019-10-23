@@ -45,29 +45,30 @@ class MemoryGame : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memory_game)
 
-        arrayToUse = getRandonEasyArray();
+        arrayToUse = getRandonEasyArray()
 
 
-        btn1 = findViewById(R.id.memory_game_btn1);
-        btn2 = findViewById(R.id.memory_game_btn2);
-        btn3 = findViewById(R.id.memory_game_btn3);
-        btn4 = findViewById(R.id.memory_game_btn4);
-        btn5 = findViewById(R.id.memory_game_btn5);
-        btn6 = findViewById(R.id.memory_game_btn6);
-        btn7 = findViewById(R.id.memory_game_btn7);
+        btn1 = findViewById(R.id.memory_game_btn1)
+        btn2 = findViewById(R.id.memory_game_btn2)
+        btn3 = findViewById(R.id.memory_game_btn3)
+        btn4 = findViewById(R.id.memory_game_btn4)
+        btn5 = findViewById(R.id.memory_game_btn5)
+        btn6 = findViewById(R.id.memory_game_btn6)
+        btn7 = findViewById(R.id.memory_game_btn7)
 
-        btn8 = findViewById(R.id.memory_game_btn8);
-        btn9 = findViewById(R.id.memory_game_btn9);
-        btn10 = findViewById(R.id.memory_game_btn10);
-        btn11 = findViewById(R.id.memory_game_btn11);
-        btn12 = findViewById(R.id.memory_game_btn12);
-        btn13 = findViewById(R.id.memory_game_btn13);
-        btn14 = findViewById(R.id.memory_game_btn14);
+        btn8 = findViewById(R.id.memory_game_btn8)
+        btn9 = findViewById(R.id.memory_game_btn9)
+        btn10 = findViewById(R.id.memory_game_btn10)
+        btn11 = findViewById(R.id.memory_game_btn11)
+        btn12 = findViewById(R.id.memory_game_btn12)
+        btn13 = findViewById(R.id.memory_game_btn13)
+        btn14 = findViewById(R.id.memory_game_btn14)
 
-        btn15 = findViewById(R.id.memory_game_btn15);
-        btn16 = findViewById(R.id.memory_game_btn16);
+        btn15 = findViewById(R.id.memory_game_btn15)
+        btn16 = findViewById(R.id.memory_game_btn16)
 
-
+        setContentView(R.layout.layout_memorize)
+        //putOnGreenToShow(arrayToUse)
         setClick()
 
 
@@ -96,6 +97,7 @@ class MemoryGame : AppCompatActivity() {
             2 -> easy2
             else -> easy3
         }
+
     }
 
 
@@ -108,10 +110,52 @@ class MemoryGame : AppCompatActivity() {
         }
 
     }
+/*
+    // criaçao da tabela memory q mosta as posiçoes(for em kotlin)
+    fun putOnGreenToShow(btnPosition: Int, arrayToUse: ByteArray, btn: Button){
+        for (btnPosition in 0 until 15)
+        if (arrayToUse[btnPosition].toInt()==1){
+            btn.setBackgroundResource(R.drawable.memory_game_btn_bg_green)
+        }
 
+    }
 
-
-
+    fun setBtn(btnPosition: Int){
+        if (btnPosition = 0){
+            return btn1
+        } else if(btnPosition = 1){
+            return btn2
+        }else if (btnPosition = 2){
+            return btn3
+        }else if (btnPosition = 3){
+            return btn4
+        }else if (btnPosition = 4){
+            return btn5
+        }else if (btnPosition = 5){
+            return btn6
+        }else if (btnPosition = 6){
+            return btn7
+        }else if (btnPosition = 7){
+            return btn8
+        }else if (btnPosition = 8){
+            return btn9
+        }else if (btnPosition = 9){
+            return btn10
+        }else if (btnPosition = 10){
+            return btn11
+        }else if (btnPosition = 11){
+            return btn12
+        }else if (btnPosition = 12){
+            return btn13
+        }else if (btnPosition = 13){
+            return btn14
+        }else if (btnPosition = 14){
+            return btn15
+        }else {
+            return btn16
+        }
+    }
+*/
 
     fun setClick(){
         btn1.setOnClickListener {

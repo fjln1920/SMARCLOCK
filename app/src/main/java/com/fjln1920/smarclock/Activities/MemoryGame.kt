@@ -2,22 +2,25 @@ package com.fjln1920.smarclock.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.fjln1920.smarclock.R
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MemoryGame : AppCompatActivity() {
 
-    private val easy0: ByteArray =  byteArrayOf(0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,1)
-    private val easy1: ByteArray =  byteArrayOf(0,1,1,0,0,0,1,0,0,0,1,0,0,0,0,0)
-    private val easy2: ByteArray =  byteArrayOf(1,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0)
-    private val easy3: ByteArray =  byteArrayOf(1,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0)
+    private val easy0: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+    private val easy1: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+    private val easy2: ByteArray = byteArrayOf(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0)
+    private val easy3: ByteArray = byteArrayOf(1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0)
 
     private lateinit var arrayToUse: ByteArray
 
 
-
-   // private val table: ByteArray = byteArrayOf(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+    // private val table: ByteArray = byteArrayOf(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
 
     // btn variables
     private lateinit var btn1: Button
@@ -39,14 +42,139 @@ class MemoryGame : AppCompatActivity() {
     private lateinit var btn16: Button
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memory_game)
+        createViewByLayout()
 
         arrayToUse = getRandonEasyArray()
+        showToMemorize(3000, arrayToUse)
 
+
+
+
+
+        //putOnGreenToShow(arrayToUse)
+
+
+    }
+
+
+    private fun getRandonEasyArray(): ByteArray {
+        return when ((0..3).random()) {
+            0 -> easy0
+            1 -> easy1
+            2 -> easy2
+            else -> easy3
+        }
+
+    }
+
+
+    private fun validateMemory(btnPosition: Int) {
+        //setContentView(R.layout.layout_memorize)
+        if (arrayToUse[btnPosition].toInt() == 0) {
+            getBtnByPosition(btnPosition).setBackgroundResource(R.drawable.memory_game_btn_bg_white)
+        } else {
+            getBtnByPosition(btnPosition).setBackgroundResource(R.drawable.memory_game_btn_bg_green)
+        }
+
+    }
+
+
+    // criaçao da tabela memory q mosta as posiçoes(for em kotlin)
+
+    private fun showToMemorize(time: Long, arrayToUse: ByteArray) {
+
+        for (i in 0..15) {
+            if (arrayToUse[i].toInt() == 1)
+                getBtnByPosition(i).setBackgroundResource(R.drawable.memory_game_btn_bg_green)
+        }
+        Handler().postDelayed({
+            changeTableColor(R.drawable.memory_game_btn_bg_gray)
+            setOnClick()
+        }, time)
+
+
+    }
+
+
+    private fun getBtnByPosition(btnPosition: Int): Button {
+        when (btnPosition) {
+            0 -> return btn1
+            1 -> return btn2
+            2 -> return btn3
+            3 -> return btn4
+            4 -> return btn5
+            5 -> return btn6
+            6 -> return btn7
+            7 -> return btn8
+            8 -> return btn9
+            9 -> return btn10
+            10 -> return btn11
+            11 -> return btn12
+            12 -> return btn13
+            13 -> return btn14
+            14 -> return btn15
+            else -> return btn16
+        }
+    }
+
+
+    private fun setOnClick() {
+        btn1.setOnClickListener {
+            validateMemory(0)
+        }
+        btn2.setOnClickListener {
+            validateMemory(1)
+        }
+        btn3.setOnClickListener {
+            validateMemory(2)
+        }
+        btn4.setOnClickListener {
+            validateMemory(3)
+        }
+        btn5.setOnClickListener {
+            validateMemory(4)
+        }
+        btn6.setOnClickListener {
+            validateMemory(5)
+        }
+        btn7.setOnClickListener {
+            validateMemory(6)
+        }
+        btn8.setOnClickListener {
+            validateMemory(7)
+        }
+        btn9.setOnClickListener {
+            validateMemory(8)
+        }
+        btn10.setOnClickListener {
+            validateMemory(9)
+        }
+        btn11.setOnClickListener {
+            validateMemory(10)
+        }
+        btn12.setOnClickListener {
+            validateMemory(11)
+        }
+        btn13.setOnClickListener {
+            validateMemory(12)
+        }
+        btn14.setOnClickListener {
+            validateMemory(13)
+        }
+        btn15.setOnClickListener {
+            validateMemory(14)
+        }
+        btn16.setOnClickListener {
+            validateMemory(15)
+        }
+
+    }
+
+
+    private fun createViewByLayout(){
 
         btn1 = findViewById(R.id.memory_game_btn1)
         btn2 = findViewById(R.id.memory_game_btn2)
@@ -66,151 +194,15 @@ class MemoryGame : AppCompatActivity() {
 
         btn15 = findViewById(R.id.memory_game_btn15)
         btn16 = findViewById(R.id.memory_game_btn16)
-
-        setContentView(R.layout.layout_memorize)
-        //putOnGreenToShow(arrayToUse)
-        setClick()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
-    fun  getRandonEasyArray(): ByteArray {
-        val randInt = (0..3).random()
-        return when (randInt) {
-            0 -> easy0
-            1 -> easy1
-            2 -> easy2
-            else -> easy3
+    private fun changeTableColor(color: Int){
+        for (i in 0..15) {
+            getBtnByPosition(i).setBackgroundResource(color)
         }
 
     }
-
-
-    fun validateMemory(btnPosstion: Int, btn: Button){
-
-        if (arrayToUse[btnPosstion].toInt()==0){
-            btn.setBackgroundResource(R.drawable.memory_game_btn_bg_red)
-        }else{
-            btn.setBackgroundResource(R.drawable.memory_game_btn_bg_green)
-        }
-
-    }
-/*
-    // criaçao da tabela memory q mosta as posiçoes(for em kotlin)
-    fun putOnGreenToShow(btnPosition: Int, arrayToUse: ByteArray, btn: Button){
-        for (btnPosition in 0 until 15)
-        if (arrayToUse[btnPosition].toInt()==1){
-            btn.setBackgroundResource(R.drawable.memory_game_btn_bg_green)
-        }
-
-    }
-
-    fun setBtn(btnPosition: Int){
-        if (btnPosition = 0){
-            return btn1
-        } else if(btnPosition = 1){
-            return btn2
-        }else if (btnPosition = 2){
-            return btn3
-        }else if (btnPosition = 3){
-            return btn4
-        }else if (btnPosition = 4){
-            return btn5
-        }else if (btnPosition = 5){
-            return btn6
-        }else if (btnPosition = 6){
-            return btn7
-        }else if (btnPosition = 7){
-            return btn8
-        }else if (btnPosition = 8){
-            return btn9
-        }else if (btnPosition = 9){
-            return btn10
-        }else if (btnPosition = 10){
-            return btn11
-        }else if (btnPosition = 11){
-            return btn12
-        }else if (btnPosition = 12){
-            return btn13
-        }else if (btnPosition = 13){
-            return btn14
-        }else if (btnPosition = 14){
-            return btn15
-        }else {
-            return btn16
-        }
-    }
-*/
-
-    fun setClick(){
-        btn1.setOnClickListener {
-            validateMemory(0, btn1)
-        }
-        btn2.setOnClickListener {
-            validateMemory(1, btn2)
-        }
-        btn3.setOnClickListener {
-            validateMemory(2, btn3)
-        }
-        btn4.setOnClickListener {
-            validateMemory(3, btn4)
-        }
-        btn5.setOnClickListener {
-            validateMemory(4, btn5)
-        }
-        btn6.setOnClickListener {
-            validateMemory(5, btn6)
-        }
-        btn7.setOnClickListener {
-            validateMemory(6, btn7)
-        }
-        btn8.setOnClickListener {
-            validateMemory(7, btn8)
-        }
-        btn9.setOnClickListener {
-            validateMemory(8, btn9)
-        }
-        btn10.setOnClickListener {
-            validateMemory(9, btn10)
-        }
-        btn11.setOnClickListener {
-            validateMemory(10, btn11)
-        }
-        btn12.setOnClickListener {
-            validateMemory(11, btn12)
-        }
-        btn13.setOnClickListener {
-            validateMemory(12, btn13)
-        }
-        btn14.setOnClickListener {
-            validateMemory(13, btn14)
-        }
-        btn15.setOnClickListener {
-            validateMemory(14, btn15)
-        }
-        btn16.setOnClickListener {
-            validateMemory(15, btn16)
-        }
-
-    }
-
-
-
 
 
 }

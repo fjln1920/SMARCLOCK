@@ -40,7 +40,7 @@ class Repeat : AppCompatActivity() {
                     shapeImg.setImageResource(R.drawable.ic_square)
                 if (i == 3)
                     shapeImg.setImageResource(R.drawable.ic_x)
-
+            jj
             i-=-1
         }
 

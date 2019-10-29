@@ -12,7 +12,7 @@ import com.fjln1920.smarclock.Utils.AlarmLabelColor
 import kotlinx.android.synthetic.main.home_alarm_item.view.*
 
 
-class AlarmAdapter(private var alarmList: List<Alarm>, private val contex: Context) :
+class AlarmAdapter(private var alarmList: ArrayList<Alarm>, private val contex: Context) :
     RecyclerView.Adapter<AlarmViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlarmViewHolder {
@@ -40,6 +40,11 @@ class AlarmAdapter(private var alarmList: List<Alarm>, private val contex: Conte
         else
             holder.alarmLabelColor.setBackgroundResource(R.drawable.alarm_item_green_label)
 
+    }
+
+    fun removeAt(position: Int) {
+        alarmList.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 

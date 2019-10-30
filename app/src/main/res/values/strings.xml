@@ -17,4 +17,7 @@
     <string name="start_a_game">Start a Game</string>
     <string name="correct">Correct</string>
     <string name="wrong">Wrong</string>
+    <string name="check">Check</string>
+    <string name="solve">Solve</string>
+    <string name="type">Type</string>
 </resources>

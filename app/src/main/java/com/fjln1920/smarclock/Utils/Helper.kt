@@ -12,7 +12,7 @@ class Helper {
 
     fun getRandEquationKey  (list: List<String>, range: Int): String {
         val rndIndex = (0 until range).random()
-        return list[range]
+        return list[rndIndex]
 
     }
 }

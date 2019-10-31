@@ -21,6 +21,8 @@ class SolveEquation : AppCompatActivity() {
 
     private var equations : HashMap<String, Int> = HashMap()
 
+    private lateinit var equatoinHashMapKey: String
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,21 +35,23 @@ class SolveEquation : AppCompatActivity() {
         equations["x + 3 = 4 * 5 "] = 17
 
 
-        var quatoinHashMapKey = helper.getRandEquationKey(easyEquation, 4)
+        equatoinHashMapKey = helper.getRandEquationKey(easyEquation, 4)
 
         txtQuestion =  findViewById(R.id.txt_question)
         edtAnswer =  findViewById(R.id.edt_answer)
         btnCheck =  findViewById(R.id.btn_check_solution)
 
-
         btnCheck.setOnClickListener {
-            if ((txtQuestion.text.toString()).toInt() == equations[quatoinHashMapKey])
-                Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
-            else
-                Toast.makeText(this, "wrong, try again!!!", Toast.LENGTH_LONG).show()
 
+            checkSolution(equatoinHashMapKey, edtAnswer.text.toString().toInt() )
         }
 
+
+    }
+
+
+    fun checkSolution(quention: String,  answerCompareTo: Int?) : Boolean{
+        return equations[quention] == answerCompareTo
 
     }
 }

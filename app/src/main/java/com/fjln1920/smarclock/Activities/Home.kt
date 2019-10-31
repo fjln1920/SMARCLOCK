@@ -100,10 +100,10 @@ class Home : AppCompatActivity() {
 
         btnAdd = findViewById(R.id.home_add_alarm_btn)
         btnAdd.setOnClickListener {
-           // intent = Intent(this, Settings::class.java)
+           intent = Intent(this, Settings::class.java)
             //intent.putExtra("id_value", id)
-             //intent.putExtra("language_value", language)
-           // startActivity(intent)
+            // intent.putExtra("language_value", language)
+            startActivity(intent)
 
 
             alarmManager.set(

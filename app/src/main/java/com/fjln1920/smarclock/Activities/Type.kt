@@ -37,14 +37,17 @@ class Type : AppCompatActivity() {
         txtWord.text = randWord
 
         btnCheck.setOnClickListener {
-            if (randWord.equals(edtAnswer.text.toString()))
-                Toast.makeText(this, "Correct!", Toast.LENGTH_LONG).show()
-            else
-                Toast.makeText(this, "wrong, try again!!!", Toast.LENGTH_LONG).show()
-
+           checkSolution(randWord, edtAnswer.text.toString())
         }
 
 
+
+    }
+
+
+
+    fun checkSolution(text: String,  answerCompareTo: String) : Boolean{
+        return text.equals(answerCompareTo)
 
     }
 

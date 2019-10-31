@@ -4,4 +4,23 @@
     <string name="active_alarm">Active Alarm</string>
     <string name="saved_alarm">Saved Alarms</string>
     <string name="btn_add">Add</string>
+
+    //game layout text
+    <string name="choose_game">Choose a game:</string>
+    <string name="equation">Equation</string>
+    <string name="memory">Memory</string>
+    <string name="type_password">Type Password</string>
+    <string name="shape_sequence">Shape Sequence</string>
+
+
+    //game leve layout text
+    <string name="equation_level">Equation level</string>
+    <string name="memory_level">Memory level</string>
+    <string name="type_password_level">Type password level</string>
+    <string name="shape_sequence_level">Shape sequence level</string>
+    <string name="btn_add_to_alarm">Add to alarm</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="try_it">Try it</string>
+    <string name=""
 </resources>

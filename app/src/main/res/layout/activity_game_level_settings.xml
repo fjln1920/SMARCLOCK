@@ -4,6 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameLevelSettings">
+    tools:context=".GameLevelSettings"
+    android:background="@color/colorAccent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp"
+        android:text="Level"
+        app:layout_editor_absoluteX="13dp"
+        app:layout_editor_absoluteY="84dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_to_alarm"
+        android:textColor="@color/colorBlack"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="658dp" />
+
+    <view
+        android:layout_width="340sp"
+        android:layout_height="200sp"
+        android:backgroundTint="@color/colorBlueLight"
+        tools:layout_editor_absoluteX="-32dp"
+        tools:layout_editor_absoluteY="159dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/colorWhite"
+        android:text="Example"
+        app:layout_editor_absoluteX="29dp"
+        app:layout_editor_absoluteY="211dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/easy"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="@color/colorWhite"
+        android:text="@string/try_it"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="335dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/colorWhite"
+        android:text="20s"
+        app:layout_editor_absoluteX="268dp"
+        app:layout_editor_absoluteY="169dp"/>
+
+    <view
+        android:layout_width="340sp"
+        android:layout_height="200sp"
+        android:backgroundTint="@color/colorBlueLight"
+        tools:layout_editor_absoluteX="348dp"
+        tools:layout_editor_absoluteY="159dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medium"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="409dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="@color/colorWhite"
+        android:text="@string/try_it"
+        tools:layout_editor_absoluteX="626dp"
+        tools:layout_editor_absoluteY="335dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/colorWhite"
+        android:text="30s"
+        app:layout_editor_absoluteX="648dp"
+        app:layout_editor_absoluteY="169dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/colorWhite"
+        android:text="Example"
+        app:layout_editor_absoluteX="409dp"
+        app:layout_editor_absoluteY="211dp"
+        />
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

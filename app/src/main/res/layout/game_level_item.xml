@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_marginEnd="20dp"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBlue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/text_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Easy"
+            android:textSize="16dp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/museo"/>
+
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="30s"
+            android:textSize="16dp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/museo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/text_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Example"
+            android:textSize="16dp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/museo"/>
+
+        <TextView
+            android:id="@+id/text_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="2X"
+            android:textSize="16dp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/museo"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_try_it"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="end"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:text="@string/try_it"
+        android:fontFamily="@font/museo"
+        />
+
+</LinearLayout>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="choosegame"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
 
 
 
@@ -20,59 +20,108 @@
         android:text="@string/choose_game"
         android:textColor="@color/colorWhite"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEquation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="@font/museo"/>
 
-
-
-    <TextView
-        android:id="@+id/textViewEquation"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/equation_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="73sp"
-        android:layout_marginBottom="44sp"
-        android:text="@string/equation"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewMemory"
-        app:layout_constraintEnd_toEndOf="@+id/textViewChooseGame"
-        app:layout_constraintTop_toBottomOf="@+id/textViewChooseGame" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/equation_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/equation"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewMemory"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/memory_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="39dp"
-        android:text="@string/memory"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTypePassword"
-        app:layout_constraintStart_toStartOf="@+id/textViewEquation"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEquation" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/memory_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/memory"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewTypePassword"
-        android:layout_width="wrap_content"
+
+
+    <LinearLayout
+            android:id="@+id/type_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/type_password_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/type_password"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:fontFamily="@font/museo"
+                />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shape_sequence_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="39dp"
-        android:text="@string/type_password"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewShapeSequence"
-        app:layout_constraintStart_toStartOf="@+id/textViewMemory"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMemory" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/shape_sequence_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shape_sequence"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewShapeSequence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="326dp"
-        android:text="@string/shape_sequence"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textViewTypePassword"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTypePassword" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</LinearLayout>

@@ -23,7 +23,7 @@ class Repeat : AppCompatActivity() {
         R.drawable.ic_square,
         R.drawable.ic_triangle,
         R.drawable.ic_x
-    )
+    ) s
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

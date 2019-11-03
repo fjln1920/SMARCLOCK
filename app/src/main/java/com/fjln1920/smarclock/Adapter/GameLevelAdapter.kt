@@ -33,7 +33,10 @@ class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val c
     }
 
     override fun onBindViewHolder(holder: GameLevelViewHolder, position: Int) {
-        holder.txtLevel.text = gameLavelList.get(position).gameLavel.toString()
+        holder.txtLevel.text = gameLavelList.get(position).gameLevel.toString()
+        holder.txtTime.text=gameLavelList.get(position).time.toString()
+        holder.txtExample.text=gameLavelList.get(position).example.toString()
+        holder.txtTimes.text = gameLavelList.get(position).times.toString()
 
 
     }

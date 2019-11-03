@@ -23,7 +23,8 @@ class Repeat : AppCompatActivity() {
         R.drawable.ic_square,
         R.drawable.ic_triangle,
         R.drawable.ic_x
-    ) s
+    )
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +39,31 @@ class Repeat : AppCompatActivity() {
 
 
     }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_repeat)
+        shapeImg = findViewById(R.id.repeat_shape_image_big)
+        //shapeImg.setImageResource(R.drawable.ic_circle)
+        var arrayToUse = getRandonSequenceArray()
+        showToMemorize(3000, arrayToUse)
 
 
+
+
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_repeat)
+        shapeImg = findViewById(R.id.repeat_shape_image_big)
+        //shapeImg.setImageResource(R.drawable.ic_circle)
+        var arrayToUse = getRandonSequenceArray()
+        showToMemorize(3000, arrayToUse)
+
+
+
+
+    }
+    /*  Choose icon  */
     fun changeByShapeIndex(shape: Int) {
         shapeImg.setImageResource(shapeArray[shape])
     }
@@ -51,6 +75,7 @@ class Repeat : AppCompatActivity() {
 
     }
 
+    /*  Radom-files    */
 
     private fun getRandonSequenceArray(): ByteArray {
         return when ((0..3).random()) {

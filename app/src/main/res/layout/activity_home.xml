@@ -128,7 +128,6 @@
 
 
 
-
     <Button
         android:id="@+id/home_add_alarm_btn"
         android:layout_width="110dp"
@@ -143,5 +142,11 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+
+
+
+
+
 
 </RelativeLayout>

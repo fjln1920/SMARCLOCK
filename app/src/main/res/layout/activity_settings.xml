@@ -91,10 +91,11 @@
 
 
                 <TimePicker
+                    android:id="@+id/alarm_settings_time_piker"
                     android:layout_width="match_parent"
                     android:layout_height="265dp"
-                    android:numbersTextColor="@color/colorWhite"
                     android:theme="@style/customTimePiker"
+                    android:numbersTextColor="@color/colorWhite"
                     android:timePickerMode="spinner" />
             </LinearLayout>
 
@@ -222,6 +223,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -261,6 +263,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text="@string/isON" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ON" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/vibrate_alarm_sound" />
 
 
@@ -282,6 +315,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView

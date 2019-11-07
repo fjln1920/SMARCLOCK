@@ -18,6 +18,11 @@ import kotlinx.android.synthetic.main.home_alarm_item.view.*
 class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val contex: Context) :
     RecyclerView.Adapter<GameLevelAdapter.GameLevelViewHolder>() {
 
+
+
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameLevelViewHolder {
         return GameLevelViewHolder(
             LayoutInflater.from(contex).inflate(
@@ -39,6 +44,11 @@ class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val c
         holder.txtTimes.text = gameLavelList.get(position).times.toString()
 
 
+        holder.btnTryIt.setOnClickListener{
+
+        }
+
+
     }
 
 
@@ -49,4 +59,7 @@ class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val c
         var txtTimes = view.text_times as TextView
         var btnTryIt = view.text_try_it as Button
     }
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.fjln1920.smarclock.service;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -18,6 +19,9 @@ import com.fjln1920.smarclock.receiver.AlarmReceiver;
 public class AlarmService extends Service {
     MediaPlayer mediaPlayer; // this object to manage media
 
+
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -28,18 +32,18 @@ public class AlarmService extends Service {
         //TODO: processing on and off ringtone
         // get string from intent
         String on_Off = intent.getExtras().getString("ON_OFF");
-
+        Log.e("service", "serv");
         switch (on_Off) {
             case Constants.ADD_INTENT: // if string like this set start media
                 // this is system default alarm alert uri
                 Uri uri = Settings.System.DEFAULT_ALARM_ALERT_URI;
 
                 // create mediaPlayer object
+
                 mediaPlayer = MediaPlayer.create(this, R.raw.iphone_ringtone);
                 mediaPlayer.start();
                 mediaPlayer.setLooping(true);
-               // intent =  new Intent(this, Settings.class);
-                //this.startActivity(intent);
+
                 break;
             case Constants.OFF_INTENT:
                 // this check if user pressed cancel

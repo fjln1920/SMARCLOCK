@@ -2,12 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fjln1920.smarclock">
-
-    <!--You need the wake lock so the phone can be activated-->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!--You need the permission to set the alarm-->
+    <!-- You need the wake lock so the phone can be activated -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- You need the permission to set the alarm -->
     <uses-permission android:name="your.package.alarm.permission.SET_ALARM" />
+
     <application
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.Type"></activity>
+        <activity android:name=".Activities.StartAGame"></activity>
+        <activity android:name=".Activities.Type" />
         <activity android:name=".Activities.SolveEquation" />
         <activity android:name="com.fjln1920.Settings" />
         <activity android:name="com.fjln1920.Home">
@@ -31,13 +30,15 @@
             android:name=".receiver.AlarmReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="TODO" />
+            android:permission="TODO"
+            tools:ignore="ExportedReceiver" />
 
         <service
             android:name=".service.AlarmService"
             android:enabled="true"
             android:exported="true"
-            android:permission="TODO" />
+            android:permission="TODO"
+            tools:ignore="ExportedService" />
     </application>
 
 </manifest>

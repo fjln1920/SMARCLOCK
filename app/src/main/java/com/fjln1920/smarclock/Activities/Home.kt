@@ -36,7 +36,7 @@ class Home : AppCompatActivity(), AlarmCalback {
     private lateinit var relativeLayout: RelativeLayout
     private lateinit var btnAdd: Button
 
-    private  lateinit var start_a_game_view: View
+
 
 
     // this to manage data base
@@ -142,7 +142,9 @@ class Home : AppCompatActivity(), AlarmCalback {
         // time, this also put into PendingIntent to compare with the cancel Alarm's id=
         val alarmId = alarm.getId()
         // make intent to broadCast
+        //AlarmReceiver.intentOK =  intentStopACtivity
         val intent = Intent(this@Home, AlarmReceiver::class.java)
+
         // put intent type to check which intent trigger add or cancel
         intent.putExtra("intentType", Constants.ADD_INTENT)
         // put id to intent
@@ -162,7 +164,7 @@ class Home : AppCompatActivity(), AlarmCalback {
         // "AlarmManager.RTC_WAKEUP" allow this app wake device from idle time and the time
         // based on device time
 
-        alarmManager.setInexactRepeating(
+        alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis, AlarmManager.INTERVAL_DAY, alarmIntent
         )

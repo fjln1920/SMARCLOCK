@@ -1,9 +1,28 @@
 <resources>
     <string name="app_name">Smarclock</string>
-    <string name="Alarms">Alarms</string>
+    <string name="alarms">Alarms</string>
     <string name="active_alarm">Active Alarm</string>
     <string name="saved_alarm">Saved Alarms</string>
     <string name="btn_add">Add</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="btn_save_alarm">Save</string>
+    <string name="repeat">Repeat</string>
+    <string name="ringtone">Ringtone</string>
+    <string name="vibrate_alarm_sound">Vibrate alarm sounds</string>
+    <string name="delete_after_off">Delete after off</string>
+    <string name="title">Title</string>
+    <string name="choose_a_game">Choose your wake up game</string>
+    <string name="set_alarm_title">Alarm Title</string>
+    <string name="save_title">Save Title</string>
+    <string name="start_a_game">Start a Game</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
+    <string name="check">Check</string>
+    <string name="solve">Solve</string>
+    <string name="type">Type</string>
+    <string name="isON">Status</string>
+
+
 
     //game layout text
     <string name="choose_game">Choose a game:</string>

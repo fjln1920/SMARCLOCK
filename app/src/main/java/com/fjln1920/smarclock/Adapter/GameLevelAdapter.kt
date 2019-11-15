@@ -1,12 +1,14 @@
 package com.fjln1920.smarclock.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fjln1920.smarclock.Activities.SolveEquation
 import com.fjln1920.smarclock.Models.Alarm
 import com.fjln1920.smarclock.Models.GameLevel
 import com.fjln1920.smarclock.R
@@ -15,7 +17,7 @@ import kotlinx.android.synthetic.main.game_level_item.view.*
 import kotlinx.android.synthetic.main.home_alarm_item.view.*
 
 
-class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val contex: Context) :
+class GameLevelAdapter(private var gameLevelList: List<GameLevel>, private val contex: Context) :
     RecyclerView.Adapter<GameLevelAdapter.GameLevelViewHolder>() {
 
 
@@ -34,18 +36,21 @@ class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val c
     }
 
     override fun getItemCount(): Int {
-        return gameLavelList.size
+        return gameLevelList.size
     }
 
     override fun onBindViewHolder(holder: GameLevelViewHolder, position: Int) {
-        holder.txtLevel.text = gameLavelList.get(position).gameLevel.toString()
-        holder.txtTime.text=gameLavelList.get(position).time.toString()
-        holder.txtExample.text=gameLavelList.get(position).example.toString()
-        holder.txtTimes.text = gameLavelList.get(position).times.toString()
+        holder.txtLevel.text = gameLevelList.get(position).gameLevel.toString()
+        holder.txtTime.text=gameLevelList.get(position).time.toString()
+        holder.txtExample.text=gameLevelList.get(position).example.toString()
+      //  holder.txtTimes.text = gameLavelList.get(position).times.toString()
 
 
-        holder.btnTryIt.setOnClickListener{
-
+       holder.btnTryIt.setOnClickListener{
+            if (gameLevelList[position].title.equals("Equation Level")){
+                var intent =  Intent(contex, SolveEquation::class.java)
+                contex.startActivity(intent);
+            }
         }
 
 
@@ -57,7 +62,7 @@ class GameLevelAdapter(private var gameLavelList: List<GameLevel>, private val c
         var txtTime = view.text_time as TextView
         var txtExample = view.text_example as TextView
         var txtTimes = view.text_times as TextView
-        var btnTryIt = view.text_try_it as Button
+        var btnTryIt = view.text_try_it as TextView
     }
 
 

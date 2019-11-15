@@ -32,7 +32,6 @@ public class AlarmService extends Service {
         //TODO: processing on and off ringtone
         // get string from intent
         String on_Off = intent.getExtras().getString("ON_OFF");
-        Log.e("service", "serv");
         switch (on_Off) {
             case Constants.ADD_INTENT: // if string like this set start media
                 // this is system default alarm alert uri

@@ -12,10 +12,20 @@ import kotlin.concurrent.schedule
 
 class MemoryGame : AppCompatActivity() {
 
+     val level =  0
+
     private val easy0: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
     private val easy1: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0)
     private val easy2: ByteArray = byteArrayOf(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0)
     private val easy3: ByteArray = byteArrayOf(1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0)
+
+    private val hard0: ByteArray = byteArrayOf(1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1)
+    private val hard1: ByteArray = byteArrayOf(1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1)
+    private val hard2: ByteArray = byteArrayOf(1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1)
+
+
+    //teste testeUnitario
+
 
     private lateinit var arrayToUse: ByteArray
 
@@ -47,8 +57,15 @@ class MemoryGame : AppCompatActivity() {
         setContentView(R.layout.activity_memory_game)
         createViewByLayout()
 
-        arrayToUse = getRandonEasyArray()
-        showToMemorize(3000, arrayToUse)
+        if(level == 0){
+            arrayToUse = getRandonEasyArray()
+            showToMemorize(3000, arrayToUse)
+        }else{
+            arrayToUse = getRandonHardArray()
+            showToMemorize(3000, arrayToUse)
+        }
+
+
 
 
 
@@ -59,6 +76,14 @@ class MemoryGame : AppCompatActivity() {
 
     }
 
+    private fun getRandonHardArray(): ByteArray {
+        return when((0..2).random()) {
+            0 -> hard0
+            1 -> hard1
+            else -> hard2
+        }
+
+    }
 
     private fun getRandonEasyArray(): ByteArray {
         return when ((0..3).random()) {

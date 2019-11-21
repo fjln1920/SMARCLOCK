@@ -35,9 +35,13 @@ public class AlarmReceiver extends BroadcastReceiver {
                 String intentType = intent.getExtras().getString("intentType");
                 Log.e("reciver", intentType);
                 Intent StartAGAmeIntent = new Intent(context, StartAGame.class);
+                Log.e("timeb", intent.getStringExtra("time"));
                 if (intentType.equals(Constants.ADD_INTENT)){
                     pendingId = intent.getExtras().getInt("PendingId");
                     StartAGAmeIntent.putExtra("ON_OFF", Constants.ADD_INTENT);
+
+                    StartAGAmeIntent.putExtra("title", intent.getStringExtra("title"));
+                    StartAGAmeIntent.putExtra("time", intent.getStringExtra("time"));
                     StartAGAmeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(StartAGAmeIntent);
 

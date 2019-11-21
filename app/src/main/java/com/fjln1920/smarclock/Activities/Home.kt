@@ -116,6 +116,8 @@ class Home : AppCompatActivity(), AlarmCalback {
         intent1.putExtra("intentType", intentType)
         // put alarm'id to compare with pendingIntent'id in AlarmService
         intent1.putExtra("AlarmId", alarm.getId().toInt())
+        intent1.putExtra("title", alarm.getAlarm_title())
+        intent1.putExtra("time", alarm.getHour_x().toString()+":"+alarm.getMinute_x())
         // this sent broadCast right a way
         sendBroadcast(intent1)
     }

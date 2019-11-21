@@ -26,6 +26,7 @@ class Alarm: Serializable{
     private var minute_x: Int = 0       // alarm's minute
     private var alarm_title: String? = null  // alarm's name
     private var onOff: Int = 0          // alarm's on off
+    private var games: String =  ""
 
 
     constructor(
@@ -35,7 +36,8 @@ class Alarm: Serializable{
         alarm_title: String?,
         labelColor: String,
         weekDays: String,
-        onOff: Int
+        onOff: Int,
+        games: String
     ) {
         this.labelColor = labelColor
         this.weekDays = weekDays
@@ -44,6 +46,7 @@ class Alarm: Serializable{
         this.minute_x = minute_x
         this.alarm_title = alarm_title
         this.onOff = onOff
+        this.games =  games
     }
 
     constructor(
@@ -52,7 +55,8 @@ class Alarm: Serializable{
         alarm_title: String?,
         labelColor: String,
         weekDays: String,
-        onOff: Int
+        onOff: Int,
+        games: String
     ) {
         this.labelColor = labelColor
         this.weekDays = weekDays
@@ -60,6 +64,7 @@ class Alarm: Serializable{
         this.minute_x = minute_x
         this.alarm_title = alarm_title
         this.onOff = onOff
+        this.games =  games
     }
 
     fun getId(): Long {
@@ -120,6 +125,11 @@ class Alarm: Serializable{
 
     fun setAlarm_WeekDays(weekDays: String) {
         this.weekDays = weekDays
+    }
+
+
+    fun getGames(): String{
+        return this.games
     }
 
     override fun toString(): String {

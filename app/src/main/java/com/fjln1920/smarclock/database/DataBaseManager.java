@@ -27,7 +27,9 @@ public class DataBaseManager extends SQLiteOpenHelper {
     private static final String COL_MINUTE = "minute";  // this column store alarm' minutes
     private static final String COL_TOGGLE = "toggle";  // this column store alarm' state
     private static final String COL_LABEL_COLOR = "labelColor";  // this column store alarm' label color
-    private static final String COL_WEEKDAYS = "weekDays";  // this column store alarm' weekdays
+    private static final String COL_WEEKDAYS = "weekDays";// this column store alarm' weekdays
+    private static final String COL_GAMES = "weekDays";// this column store alarm' games
+
 
 
     // this string defines table and data type use for onCreate method
@@ -38,6 +40,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
             + COL_TITLE + " TEXT, "      // alarm's name
             + COL_LABEL_COLOR + " TEXT, "  // alarm's label color
             + COL_WEEKDAYS + " TEXT, "   // alarm's week days
+            + COL_GAMES + " TEXT, "// alarm's games
             + COL_TOGGLE + " INTEGER)";    // alarm's toggle detail 1 is on 0 is off
 
     // TODO:   this is data base constructor
@@ -61,10 +64,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     // TODO: insert alarm to database
     public void insert(Alarm alarm) {
         // getting write data
-        SQLiteDatabase db = null;
 
-        try {
-            db = this.getWritableDatabase();
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
             // ContentValues like a box to contain value in there
             ContentValues values = new ContentValues();
             // put value to each column
@@ -79,13 +80,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
             db.insert(TABLE_NAME, null, values);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // finally close it
-            if (db != null) {
-                db.close();
-
-            }
         }
+        // finally close it
 
 
     }
@@ -159,7 +155,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
                 do {
 
                     Alarm alarm = new Alarm(cursor.getInt(1), cursor.getInt(2), cursor.getString(3),
-                            cursor.getString(4), cursor.getString(5), cursor.getInt(6));
+                            cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getString(7));
                     alarm.setId(cursor.getLong(0));
                     alarmArrayList.add(alarm);
                 } while (cursor.moveToNext());

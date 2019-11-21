@@ -95,7 +95,7 @@ class Settings : AppCompatActivity() {
             startActivity(intent)
             dataBaseManager = DataBaseManager(this)
             Log.e("hour",  alarmTimePiker.hour.toString())
-            alarm =  Alarm(System.currentTimeMillis(), alarmTimePiker.hour, alarmTimePiker.minute, alarm_title, AlarmLabelColor.BLUE.toString(), weakDays, 1)
+            alarm =  Alarm(System.currentTimeMillis(), alarmTimePiker.hour, alarmTimePiker.minute, alarm_title, AlarmLabelColor.BLUE.toString(), weakDays, 1, "")
             dataBaseManager.insert(alarm)
 
 

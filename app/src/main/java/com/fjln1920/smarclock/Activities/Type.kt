@@ -2,6 +2,7 @@ package com.fjln1920.smarclock.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +16,10 @@ class Type : AppCompatActivity() {
     private lateinit var edtAnswer: EditText
     private lateinit var btnCheck: Button
     private  var randWord : String =  ""
+
+
+    private lateinit var layoutCorrect: View
+    private lateinit var layoutWrong: View
 
     private  val helper: Helper = Helper()
 
@@ -33,11 +38,19 @@ class Type : AppCompatActivity() {
         edtAnswer =  findViewById(R.id.edt_answer)
         btnCheck =  findViewById(R.id.btn_check_solution)
 
+
+        layoutCorrect = findViewById(R.id.layout_correct)
+        layoutWrong =  findViewById(R.id.layout_wrong)
+
         randWord =  helper.getRandString(easyString, 5)
         txtWord.text = randWord
 
+
         btnCheck.setOnClickListener {
-           checkSolution(randWord, edtAnswer.text.toString())
+          if (checkSolution(randWord, edtAnswer.text.toString()))
+              layoutCorrect.visibility = View.VISIBLE
+          else
+              layoutWrong.visibility = View.VISIBLE
         }
 
 

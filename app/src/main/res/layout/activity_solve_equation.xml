@@ -10,62 +10,94 @@
     android:background="@color/colorBlueDark"
     tools:context=".Activities.SolveEquation">
 
+    <include
+        android:id="@+id/layout_wrong"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        layout="@layout/wrong"
+        android:visibility="gone"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/solve"
-        android:textSize="36sp"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/museo"
-        android:layout_marginBottom="100dp"/>
+    <include
+        android:id="@+id/layout_correct"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        layout="@layout/correct"
+        android:visibility="gone"/>
+
+
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
 
         <TextView
-            android:id="@+id/txt_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15/10 = "
-            android:textSize="35sp"
-            android:fontFamily="@font/museo"
-            android:textColor="@color/colorWhite"/>
-
-
-        <EditText
-            android:id="@+id/edt_answer"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:textColor="@color/colorGreen"
+            android:text="@string/solve"
             android:textSize="36sp"
-            android:inputType="numberDecimal"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/museo"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginBottom="100dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15/10 = "
+                android:textSize="35sp"
+                android:fontFamily="@font/museo"
+                android:textColor="@color/colorWhite"/>
+
+
+            <EditText
+                android:id="@+id/edt_answer"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGreen"
+                android:textSize="36sp"
+                android:inputType="numberDecimal"
+                android:fontFamily="@font/museo"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btn_check_solution"
+            android:layout_width="180dp"
+            android:layout_height="45dp"
+            android:text="@string/check"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:background="@drawable/add_btn_shape_white"
+            android:layout_gravity="center|bottom"
+            android:layout_marginTop="60dp"/>
 
     </LinearLayout>
 
 
 
-    <Button
-        android:id="@+id/btn_check_solution"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:text="@string/check"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:background="@drawable/add_btn_shape_white"
-        android:layout_gravity="center|bottom"
-        android:layout_marginTop="100dp"/>
+
+
+
 
 </LinearLayout>

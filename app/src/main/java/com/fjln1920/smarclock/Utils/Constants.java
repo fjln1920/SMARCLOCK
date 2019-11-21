@@ -12,4 +12,7 @@ public class Constants {
     public static final String ADD_INTENT = "com.fjln1920.smarclock.util.Constant.ADD_INTENT";
     // / this use for cancel alarm time
     public static final String OFF_INTENT = "com.fjln1920.smarclock.util.Constant.OFF_INTENT";
+
+
+
 }

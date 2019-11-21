@@ -1,9 +1,407 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Settings">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="100dp">
+
+
+            <LinearLayout
+                android:id="@+id/alarm_card"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/alarm_card_blue"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:layout_height="14dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <ImageButton
+                                android:id="@+id/setting_back_btn"
+                                android:layout_width="22dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:padding="10dp"
+                                android:src="@drawable/ic_back_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/museo"
+                                android:text="@string/add_alarm"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="20dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_z" />
+
+
+                </LinearLayout>
+
+
+                <TimePicker
+                    android:id="@+id/alarm_settings_time_piker"
+                    android:layout_width="match_parent"
+                    android:layout_height="265dp"
+                    android:theme="@style/customTimePiker"
+                    android:numbersTextColor="@color/colorWhite"
+                    android:timePickerMode="spinner" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/sunday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="S"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/monday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="M"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/tuesday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="T"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/wednesday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="W"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/thursday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="T"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/friday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="F"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/saturday_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/museo"
+                    android:padding="10dp"
+                    android:text="S"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/repeat" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="once" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ringtone" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/isON" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ON" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/vibrate_alarm_sound" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/delete_after_off" />
+
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/museo"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title" />
+
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/museo"
+                    android:text="Wake up"
+                    android:textColor="@color/colorGray"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_choose_a_game"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:text="@string/choose_a_game"
+                android:textAllCaps="false"
+                android:background="@drawable/btn_choose_a_game"
+                />
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <Button
+        android:id="@+id/setting_save_alarm_btn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:background="@drawable/add_btn_shape"
+        android:fontFamily="@font/museo"
+        android:text="@string/btn_save_alarm"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

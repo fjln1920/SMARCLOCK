@@ -162,5 +162,19 @@
         android:textColor="@color/colorWhite"
         android:layout_marginStart="15dp" />
 
+    <include
+        android:id="@+id/layout_wrong"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        layout="@layout/wrong"/>
+    <include
+        android:id="@+id/layout_correct"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        layout="@layout/correct"/>
+
+
 
 </RelativeLayout>

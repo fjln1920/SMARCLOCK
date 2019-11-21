@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorBlueDark"
+    tools:context=".Activities.StartAGame">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="09:00"
+        android:id="@+id/txt_time"
+        android:fontFamily="@font/museo"
+        android:textColor="@color/colorWhite"
+        android:textSize="36sp"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WAKE UP"
+        android:id="@+id/txt_title"
+        android:fontFamily="@font/museo"
+        android:textColor="@color/colorWhite"
+        android:textSize="36sp"
+        android:gravity="center"/>
+
+
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:text="@string/start_a_game"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:background="@drawable/add_btn_shape_white"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="100dp"/>
+
+
+</LinearLayout>

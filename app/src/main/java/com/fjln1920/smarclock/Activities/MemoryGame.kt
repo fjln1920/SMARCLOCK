@@ -3,16 +3,18 @@ package com.fjln1920.smarclock.Activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.fjln1920.smarclock.R
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.schedule
 
 class MemoryGame : AppCompatActivity() {
 
-     val level =  0
+    private var level = 0
 
     private val easy0: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
     private val easy1: ByteArray = byteArrayOf(0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0)
@@ -28,9 +30,12 @@ class MemoryGame : AppCompatActivity() {
 
 
     private lateinit var arrayToUse: ByteArray
+    private lateinit var layoutCorrect: View;
+    private lateinit var layoutWrong: View
+
+    private var count = 0
 
 
-    // private val table: ByteArray = byteArrayOf(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
 
     // btn variables
     private lateinit var btn1: Button
@@ -57,27 +62,20 @@ class MemoryGame : AppCompatActivity() {
         setContentView(R.layout.activity_memory_game)
         createViewByLayout()
 
-        if(level == 0){
-            arrayToUse = getRandonEasyArray()
-            showToMemorize(3000, arrayToUse)
-        }else{
-            arrayToUse = getRandonHardArray()
-            showToMemorize(3000, arrayToUse)
-        }
+
+        level = intent.getIntExtra("level", 0);
+        layoutCorrect = findViewById(R.id.layout_correct)
+        layoutWrong = findViewById(R.id.layout_wrong)
 
 
+        startGameByLevel(level)
 
-
-
-
-
-        //putOnGreenToShow(arrayToUse)
 
 
     }
 
     private fun getRandonHardArray(): ByteArray {
-        return when((0..2).random()) {
+        return when ((0..2).random()) {
             0 -> hard0
             1 -> hard1
             else -> hard2
@@ -97,11 +95,24 @@ class MemoryGame : AppCompatActivity() {
 
 
     private fun validateMemory(btnPosition: Int) {
-        //setContentView(R.layout.layout_memorize)
         if (arrayToUse[btnPosition].toInt() == 0) {
-            getBtnByPosition(btnPosition).setBackgroundResource(R.drawable.memory_game_btn_bg_white)
+
+            layoutWrong.visibility = View.VISIBLE
+            changeTableColor(R.drawable.memory_game_btn_bg_white)
+            count = 0
+            Handler().postDelayed({
+
+                layoutWrong.visibility = View.GONE
+                startGameByLevel(level)
+            }, 1000)
+
+
         } else {
             getBtnByPosition(btnPosition).setBackgroundResource(R.drawable.memory_game_btn_bg_green)
+            count++
+            if (checkDone(level))
+                layoutCorrect.visibility = View.VISIBLE
+
         }
 
     }
@@ -110,13 +121,18 @@ class MemoryGame : AppCompatActivity() {
     // criaçao da tabela memory q mosta as posiçoes(for em kotlin)
 
     private fun showToMemorize(time: Long, arrayToUse: ByteArray) {
-
+        //  Log.e("antes", arrayToUse.toCollection(ArrayList()).toString())
         for (i in 0..15) {
-            if (arrayToUse[i].toInt() == 1)
+
+            if (arrayToUse[i].toInt() == 1) {
                 getBtnByPosition(i).setBackgroundResource(R.drawable.memory_game_btn_bg_green)
+                // Log.e("depois", arrayToUse.toCollection(ArrayList()).toString())
+
+            }
         }
         Handler().postDelayed({
             changeTableColor(R.drawable.memory_game_btn_bg_gray)
+
             setOnClick()
         }, time)
 
@@ -199,7 +215,7 @@ class MemoryGame : AppCompatActivity() {
     }
 
 
-    private fun createViewByLayout(){
+    private fun createViewByLayout() {
 
         btn1 = findViewById(R.id.memory_game_btn1)
         btn2 = findViewById(R.id.memory_game_btn2)
@@ -222,11 +238,31 @@ class MemoryGame : AppCompatActivity() {
     }
 
 
-    private fun changeTableColor(color: Int){
+    private fun changeTableColor(color: Int) {
         for (i in 0..15) {
             getBtnByPosition(i).setBackgroundResource(color)
         }
 
+    }
+
+    private fun startGameByLevel(level: Int) {
+
+
+        if (level == 0) {
+            arrayToUse = getRandonEasyArray()
+            showToMemorize(1500, arrayToUse)
+
+        } else {
+            arrayToUse = getRandonHardArray()
+            showToMemorize(1500, arrayToUse)
+        }
+
+    }
+
+    private fun checkDone(level: Int): Boolean {
+        if ((level == 0 && count == 4) || level == 1 && count == 7)
+            return true
+        return false
     }
 
 

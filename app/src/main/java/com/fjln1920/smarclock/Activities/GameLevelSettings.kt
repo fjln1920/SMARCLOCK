@@ -10,9 +10,9 @@ import com.fjln1920.smarclock.Adapter.GameLevelAdapter
 import com.fjln1920.smarclock.Models.GameLevel
 import com.fjln1920.smarclock.R
 
+
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class     GameLevelSettings : AppCompatActivity() {
-
 
 
 
@@ -27,23 +27,23 @@ class     GameLevelSettings : AppCompatActivity() {
     private lateinit var  title: TextView
 
     private var equationLevelList =  listOf(
-        GameLevel("Equation Level", "Easy", 15, "16 + 5", "eq"),
-        GameLevel("Equation Leve", "Hard", 30, "3x = 12", "eq"))
+        GameLevel("Equation Level", "Easy", 15, "16 + 5"),
+        GameLevel("Equation Leve", "Hard", 30, "3x = 12"))
 
 
 
     private var typeLevelList =  listOf(
-        GameLevel("Type Level", "Easy", 10, "NHKJN", "ty"),
-        GameLevel("Type Leve", "Hard", 20, "xvJKH123#", "ty"))
+        GameLevel("Type Level", "Easy", 10, "NHKJN"),
+        GameLevel("Type Leve", "Hard", 20, "xvJKH123#"))
 
 
     private var memoryLevelList =  listOf(
-        GameLevel("Memory Level", "Easy", 10, "Remember 4 cards", "me"),
-        GameLevel("Memory Leve", "Hard", 20, "Remember 7 cards","me"))
+        GameLevel("Memory Level", "Easy", 10, "Remember 4 cards"),
+        GameLevel("Memory Leve", "Hard", 20, "Remember 7 cards"))
 
     private var shapeLevelList =  listOf(
-        GameLevel("Shape Sequence Level", "Easy", 10, "", "sh"),
-        GameLevel("Shape Sequence Level", "Hard", 20, "", "sh"))
+        GameLevel("Shape Sequence Level", "Easy", 10, ""),
+        GameLevel("Shape Sequence Level", "Hard", 20, ""))
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

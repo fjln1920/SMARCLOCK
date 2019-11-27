@@ -11,7 +11,7 @@
     <string name="vibrate_alarm_sound">Vibrate alarm sounds</string>
     <string name="delete_after_off">Delete after off</string>
     <string name="title">Title</string>
-    <string name="choose_a_game">Choose your wake up game</string>
+    <string name="choose_a_game">Try a game</string>
     <string name="set_alarm_title">Alarm Title</string>
     <string name="save_title">Save Title</string>
     <string name="start_a_game">Start a Game</string>
@@ -41,5 +41,9 @@
     <string name="easy">Easy</string>
     <string name="medium">Medium</string>
     <string name="try_it">Try it</string>
+
+
+
+    <string name="memorize">Memorize</string>
 
 </resources>

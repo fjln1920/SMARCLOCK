@@ -22,6 +22,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public static int pendingId;
 
 
+
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
@@ -35,15 +36,21 @@ public class AlarmReceiver extends BroadcastReceiver {
                 String intentType = intent.getExtras().getString("intentType");
                 Log.e("reciver", intentType);
                 Intent StartAGAmeIntent = new Intent(context, StartAGame.class);
-                Log.e("timeb", intent.getStringExtra("time"));
+                //Log.e("timeb", intent.getStringExtra("time"));
+
                 if (intentType.equals(Constants.ADD_INTENT)){
+                    Log.e("nfn", "lkjfnk");
+
                     pendingId = intent.getExtras().getInt("PendingId");
                     StartAGAmeIntent.putExtra("ON_OFF", Constants.ADD_INTENT);
+                    Log.e("ok", "me");
 
                     StartAGAmeIntent.putExtra("title", intent.getStringExtra("title"));
                     StartAGAmeIntent.putExtra("time", intent.getStringExtra("time"));
                     StartAGAmeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Log.e("tranquilo", "ok");
                     context.startActivity(StartAGAmeIntent);
+
 
                 }
 
@@ -58,6 +65,13 @@ public class AlarmReceiver extends BroadcastReceiver {
                 e.printStackTrace();
             }
         }
+
+
+
+
+
+
+
 
     }
 

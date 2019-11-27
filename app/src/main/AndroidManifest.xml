@@ -18,6 +18,7 @@
         <activity android:name=".Activities.Type" />
         <activity android:name="com.fjln1920.ChooseAGame"></activity>
         <activity android:name="com.fjln1920.GameLevelSettings"></activity>
+        <activity android:name=".Activities.MemoryGame"></activity>
         <activity android:name=".Activities.SolveEquation" />
         <activity android:name="com.fjln1920.Settings" />
         <activity android:name="com.fjln1920.Home">

@@ -9,11 +9,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fjln1920.GameLevelSettings
+import com.fjln1920.smarclock.Activities.MemoryGame
 import com.fjln1920.smarclock.Activities.SolveEquation
+import com.fjln1920.smarclock.Activities.Type
 import com.fjln1920.smarclock.Models.Alarm
 import com.fjln1920.smarclock.Models.GameLevel
 import com.fjln1920.smarclock.R
 import com.fjln1920.smarclock.Utils.AlarmLabelColor
+import com.fjln1920.smarclock.Utils.Helper
 import kotlinx.android.synthetic.main.game_level_item.view.*
 import kotlinx.android.synthetic.main.home_alarm_item.view.*
 
@@ -23,10 +26,6 @@ class GameLevelAdapter(private var gameLevelList: List<GameLevel>, private val c
 
 
     var gameAdded: String = ""
-
-
-
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameLevelViewHolder {
@@ -45,24 +44,38 @@ class GameLevelAdapter(private var gameLevelList: List<GameLevel>, private val c
 
     override fun onBindViewHolder(holder: GameLevelViewHolder, position: Int) {
         holder.txtLevel.text = gameLevelList.get(position).gameLevel.toString()
-        holder.txtTime.text=gameLevelList.get(position).time.toString()
-        holder.txtExample.text=gameLevelList.get(position).example.toString()
+        holder.txtTime.text = gameLevelList.get(position).time.toString()
+        holder.txtExample.text = gameLevelList.get(position).example.toString()
 
 
 
         holder.gamelevelItemView.setOnClickListener {
             holder.gamelevelItemView.setBackgroundResource(R.color.colorGreen)
-           // gameAded = gameLevelList[position].gameName+":"+gameLevelList[position].gameLevel
+            // gameAded = gameLevelList[position].gameName+":"+gameLevelList[position].gameLevel
 
         }
-      //  holder.txtTimes.text = gameLavelList.get(position).times.toString()
+        //  holder.txtTimes.text = gameLavelList.get(position).times.toString()
 
 
-       holder.btnTryIt.setOnClickListener{
-            if (gameLevelList[position].title.equals("Equation Level")){
-                val intent =  Intent(contex, SolveEquation::class.java)
+        holder.btnTryIt.setOnClickListener {
+            var intent: Intent
+            if (gameLevelList[position].title.equals("Equation Level")) {
+                intent = Intent(contex, SolveEquation::class.java)
+                contex.startActivity(intent);
+
+            }
+
+            if (gameLevelList[position].title.equals("Type Level")) {
+                intent = Intent(contex, Type::class.java)
                 contex.startActivity(intent);
             }
+
+            if (gameLevelList[position].title.equals("Memory Level")) {
+                intent = Intent(contex, MemoryGame::class.java)
+
+            }
+
+
         }
 
 
@@ -70,7 +83,7 @@ class GameLevelAdapter(private var gameLevelList: List<GameLevel>, private val c
 
 
     class GameLevelViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var gamelevelItemView =  view.game_level_item as View
+        var gamelevelItemView = view.game_level_item as View
         var txtLevel = view.text_level as TextView
         var txtTime = view.text_time as TextView
         var txtExample = view.text_example as TextView
@@ -80,9 +93,8 @@ class GameLevelAdapter(private var gameLevelList: List<GameLevel>, private val c
 
 
     fun getGameLevel(): String {
-        return  this.gameAdded;
+        return this.gameAdded;
     }
-
 
 
 }

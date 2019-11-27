@@ -28,7 +28,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     private static final String COL_TOGGLE = "toggle";  // this column store alarm' state
     private static final String COL_LABEL_COLOR = "labelColor";  // this column store alarm' label color
     private static final String COL_WEEKDAYS = "weekDays";// this column store alarm' weekdays
-    private static final String COL_GAMES = "weekDays";// this column store alarm' games
+
 
 
 
@@ -40,7 +40,6 @@ public class DataBaseManager extends SQLiteOpenHelper {
             + COL_TITLE + " TEXT, "      // alarm's name
             + COL_LABEL_COLOR + " TEXT, "  // alarm's label color
             + COL_WEEKDAYS + " TEXT, "   // alarm's week days
-            + COL_GAMES + " TEXT, "// alarm's games
             + COL_TOGGLE + " INTEGER)";    // alarm's toggle detail 1 is on 0 is off
 
     // TODO:   this is data base constructor
@@ -88,11 +87,9 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     // TODO: this method update new alarm to database
     public void update(Alarm alarm) {
-        SQLiteDatabase db = null;
         String where = COL_ID + " = " + alarm.getId();
-        try {
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
             // getting write data
-            db = this.getWritableDatabase();
             // ContentValues like a box to contain value in there
             ContentValues values = new ContentValues();
 
@@ -107,13 +104,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // always close at the finally
-            if (db != null) {
-                db.close();
-
-            }
         }
+        // always close at the finally
 
 
     }
@@ -121,20 +113,14 @@ public class DataBaseManager extends SQLiteOpenHelper {
     // TODO: this delete row in databse if the row has alarm'id equal alarmId
     public void delete(Long alarmId) {
         // getting write data
-        SQLiteDatabase db = null;
-        String where = COL_ID + " = " + alarmId;
 
-        try {
-            db = this.getWritableDatabase();
+        String where = COL_ID + " = " + alarmId;
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
             db.delete(TABLE_NAME, where, null);
 
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (db != null) {
-                db.close();
-            }
         }
 
 
@@ -147,25 +133,20 @@ public class DataBaseManager extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<Alarm> alarmArrayList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
-        Cursor cursor = db.rawQuery(selectQuery, null);
 
-        try {
+        try (Cursor cursor = db.rawQuery(selectQuery, null)) {
             // method moveToFirst return true if cursor not empty
             if (cursor.moveToFirst()) {
                 do {
 
                     Alarm alarm = new Alarm(cursor.getInt(1), cursor.getInt(2), cursor.getString(3),
-                            cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getString(7));
+                            cursor.getString(4), cursor.getString(5), cursor.getInt(6));
                     alarm.setId(cursor.getLong(0));
                     alarmArrayList.add(alarm);
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
             Log.e(TAG, "getAlarmList: exception cause " + e.getCause() + " message " + e.getMessage());
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
         }
 
         return alarmArrayList;

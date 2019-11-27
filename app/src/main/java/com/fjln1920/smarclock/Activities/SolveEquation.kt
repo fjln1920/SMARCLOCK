@@ -3,6 +3,7 @@ package com.fjln1920.smarclock.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -10,7 +11,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.fjln1920.smarclock.R
+import com.fjln1920.smarclock.Utils.Constants
 import com.fjln1920.smarclock.Utils.Helper
+import com.fjln1920.smarclock.service.AlarmService
 
 class SolveEquation : AppCompatActivity() {
 
@@ -47,14 +50,14 @@ class SolveEquation : AppCompatActivity() {
         equations["x + 3 = 4 * 5 "] = "17"
 
 
-        equatoinHashMapKey = helper.getRandEquationKey(easyEquation, 4)
+
 
         txtQuestion = findViewById(R.id.txt_question)
         edtAnswer = findViewById(R.id.edt_answer)
         btnCheck = findViewById(R.id.btn_check_solution)
         layoutCorrect = findViewById(R.id.layout_correct)
         layoutWrong = findViewById(R.id.layout_wrong)
-
+        equatoinHashMapKey = helper.getRandEquationKey(easyEquation, 4)
         txtQuestion.text = equatoinHashMapKey
 
 
@@ -63,10 +66,21 @@ class SolveEquation : AppCompatActivity() {
         btnCheck.setOnClickListener {
             if (checkSolution(equatoinHashMapKey, edtAnswer.text.toString())) {
                 layoutCorrect.visibility = View.VISIBLE
-                helper.returnToTryIt(layoutCorrect, this, "equation")
+                val intentToService = Intent(this, AlarmService::class.java)
+                intentToService.putExtra("ON_OFF", Constants.OFF_INTENT)
+                //intentToService.putExtra("AlarmId", intentToService.getStringExtra("AlarmId"))
+                startService(intentToService)
+               // helper.returnToTryIt(layoutCorrect, this, "equation")
             } else {
                 layoutWrong.visibility = View.VISIBLE
-                helper.retryGame(layoutWrong)
+                Handler().postDelayed({
+                    layoutWrong.visibility = View.GONE
+                    equatoinHashMapKey = helper.getRandEquationKey(easyEquation, 4)
+                    txtQuestion.text = equatoinHashMapKey
+
+                    // helper.retryGame(layoutWrong)
+                }, 1000)
+
             }
 
 

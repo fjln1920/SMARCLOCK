@@ -1,14 +1,18 @@
 package com.fjln1920.smarclock.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.fjln1920.smarclock.R
+import com.fjln1920.smarclock.Utils.Constants
 import com.fjln1920.smarclock.Utils.Helper
+import com.fjln1920.smarclock.service.AlarmService
 
 class Type : AppCompatActivity() {
 
@@ -47,10 +51,21 @@ class Type : AppCompatActivity() {
 
 
         btnCheck.setOnClickListener {
-          if (checkSolution(randWord, edtAnswer.text.toString()))
-              layoutCorrect.visibility = View.VISIBLE
-          else
-              layoutWrong.visibility = View.VISIBLE
+            if (checkSolution(randWord, edtAnswer.text.toString())) {
+                layoutCorrect.visibility = View.VISIBLE
+                val intentToService = Intent(this, AlarmService::class.java)
+                intentToService.putExtra("ON_OFF", Constants.OFF_INTENT)
+                //  intentToService.putExtra("AlarmId", intentToService.getStringExtra("AlarmId"))
+                startService(intentToService)
+            } else {
+                layoutWrong.visibility = View.VISIBLE
+                Handler().postDelayed({
+
+                    layoutWrong.visibility = View.GONE
+                    randWord = helper.getRandString(easyString, 5)
+                    txtWord.text = randWord
+                }, 1000)
+            }
         }
 
 

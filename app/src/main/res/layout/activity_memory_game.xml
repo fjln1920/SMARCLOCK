@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MemoryGame"
+    android:orientation="vertical"
+    android:background="@color/colorBlueDark">
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:id="@+id/memory_game_btn1"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn2"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn3"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn4"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/memory_game_btn_bg_white"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:id="@+id/memory_game_btn5"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn6"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn7"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn8"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:id="@+id/memory_game_btn9"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn10"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn11"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn12"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:id="@+id/memory_game_btn13"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn14"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn15"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+                <Button
+                    android:id="@+id/memory_game_btn16"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/memory_game_btn_bg_white"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/memorize"
+        android:fontFamily="@font/museo"
+        android:textSize="28sp"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginStart="15dp" />
+
+    <include
+        android:id="@+id/layout_wrong"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        layout="@layout/wrong"/>
+    <include
+        android:id="@+id/layout_correct"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        layout="@layout/correct"/>
+
+
+
+</RelativeLayout>

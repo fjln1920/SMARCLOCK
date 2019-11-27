@@ -38,7 +38,7 @@ public class AlarmService extends Service {
                 Uri uri = Settings.System.DEFAULT_ALARM_ALERT_URI;
 
                 // create mediaPlayer object
-
+                Log.e("yee", uri.toString());
                 mediaPlayer = MediaPlayer.create(this, R.raw.iphone_ringtone);
                 mediaPlayer.start();
                 mediaPlayer.setLooping(true);
@@ -50,10 +50,10 @@ public class AlarmService extends Service {
                 // pendingIntent'trigger id(pendingIntent request code)
                 // the AlarmReceiver.pendingIntentId is taken from AlarmReceiver
                 // when one pendingIntent trigger
-                int alarmId = intent.getExtras().getInt("AlarmId");
+               // int alarmId = intent.getExtras().getInt("AlarmId");
                 // check if mediaPlayer created or not and if media is playing and id of
                 // alarm and trigger pendingIntent is same  then stop music and reset it
-                if (mediaPlayer != null && mediaPlayer.isPlaying() && alarmId == AlarmReceiver.pendingId) {
+                if (mediaPlayer != null && mediaPlayer.isPlaying() /*&& alarmId == AlarmReceiver.pendingId*/) {
                     // stop media
                     mediaPlayer.stop();
                     // reset it
@@ -70,8 +70,8 @@ public class AlarmService extends Service {
     public void onDestroy() {
         super.onDestroy();
         //TODO: Xử lý logic tắt nhạc chuông
-        mediaPlayer.stop();
-        mediaPlayer.reset();
+        //mediaPlayer.stop();
+        //mediaPlayer.reset();
     }
 
     public IBinder onBind(Intent intent) {

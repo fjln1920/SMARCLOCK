@@ -9,7 +9,7 @@ import com.fjln1920.GameLevelSettings
 class Helper {
 
 
-  //  public static var gameAdded: String = ""
+     var gameAdded: String = ""
 
 
     fun getRandString(list: List<String>, range: Int): String {

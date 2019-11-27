@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBlueDark"
+    tools:context=".Activities.Type">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type"
+        android:textSize="36sp"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/museo"
+        android:layout_marginBottom="100dp"/>
+
+
+    <TextView
+        android:id="@+id/txt_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HMmml12mn"
+        android:textSize="35sp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/museo"
+        android:textColor="@color/colorGreen"/>
+
+
+    <EditText
+        android:id="@+id/edt_answer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/colorGreen"
+        android:textSize="36sp"
+        android:inputType="text"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/museo"
+        android:layout_marginStart="20dp"/>
+
+
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btn_check_solution"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:text="@string/check"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:background="@drawable/add_btn_shape_white"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="100dp"/>
+
+
+</LinearLayout>

@@ -1,9 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseAGame">
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/textViewChooseGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13sp"
+        android:layout_marginTop="84sp"
+        android:layout_marginBottom="58sp"
+        android:text="@string/choose_game"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp"
+        android:fontFamily="@font/museo"/>
+
+    <LinearLayout
+        android:id="@+id/equation_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/equation_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/equation"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/memory_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/memory_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/memory"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+            android:id="@+id/type_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/type_password_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/type_password"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:fontFamily="@font/museo"
+                />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shape_sequence_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/shape_sequence_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shape_sequence"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:fontFamily="@font/museo"
+            />
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

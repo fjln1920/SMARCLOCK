@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBlueDark"
+    tools:context=".Activities.Repeat">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/repeat"
+        android:textSize="28sp"
+        android:fontFamily="@font/museo"
+        android:layout_marginTop="78dp"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/colorWhite" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/repeat_shape_bg_square"
+            android:background="@color/colorBlueLight"
+            android:layout_width="340dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="340dp">
+            <ImageView
+                android:id="@+id/repeat_shape_image_big"
+                android:layout_width="170dp"
+                android:layout_height="170dp" />
+
+            <GridLayout
+                android:id="@+id/gridlayout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2">
+
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/circle"
+                    android:src="@drawable/ic_circle"
+                    android:layout_width="160dp"
+                    android:padding="5dp"
+                    android:layout_height="160dp" />
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/square"
+                    android:src="@drawable/ic_square"
+                    android:layout_width="170dp"
+                    android:padding="5dp"
+                    android:layout_height="170dp" />
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_triangle"
+                    android:id="@+id/triangle"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:padding="5dp"/>
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_x"
+                    android:id="@+id/cruz"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:padding="5dp"/>
+
+            </GridLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

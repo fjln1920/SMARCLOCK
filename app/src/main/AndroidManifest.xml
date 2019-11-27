@@ -21,7 +21,7 @@
         <activity android:name=".Activities.MemoryGame"></activity>
         <activity android:name=".Activities.SolveEquation" />
         <activity android:name="com.fjln1920.Settings" />
-        <activity android:name="com.fjln1920.Home">
+        <activity android:name="com.fjln1920.smarclock.Activities.Repeat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

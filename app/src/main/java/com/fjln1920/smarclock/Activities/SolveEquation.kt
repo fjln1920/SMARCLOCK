@@ -66,10 +66,14 @@ class SolveEquation : AppCompatActivity() {
         btnCheck.setOnClickListener {
             if (checkSolution(equatoinHashMapKey, edtAnswer.text.toString())) {
                 layoutCorrect.visibility = View.VISIBLE
-                val intentToService = Intent(this, AlarmService::class.java)
-                intentToService.putExtra("ON_OFF", Constants.OFF_INTENT)
-                //intentToService.putExtra("AlarmId", intentToService.getStringExtra("AlarmId"))
-                startService(intentToService)
+                Handler().postDelayed({
+                    val intentToService = Intent(this, AlarmService::class.java)
+                    intentToService.putExtra("ON_OFF", Constants.OFF_INTENT)
+                    //intentToService.putExtra("AlarmId", intentToService.getStringExtra("AlarmId"))
+
+                    startService(intentToService)
+                }, 1000)
+
                // helper.returnToTryIt(layoutCorrect, this, "equation")
             } else {
                 layoutWrong.visibility = View.VISIBLE

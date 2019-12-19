@@ -12,7 +12,9 @@ import android.widget.Toast
 import com.fjln1920.smarclock.R
 import com.fjln1920.smarclock.Utils.Constants
 import com.fjln1920.smarclock.Utils.Helper
+import com.fjln1920.smarclock.Utils.RandomString
 import com.fjln1920.smarclock.service.AlarmService
+import java.util.concurrent.ThreadLocalRandom
 
 class Type : AppCompatActivity() {
 
@@ -26,9 +28,10 @@ class Type : AppCompatActivity() {
     private lateinit var layoutWrong: View
 
     private  val helper: Helper = Helper()
+    var gen : RandomString = RandomString(8, ThreadLocalRandom.current());
 
 
-    private  val easyString =  listOf("HuWnmkY12H", "126HlkS", "klmsa", "KLÇasd67", "POTYRj0")
+   // private  val easyString =  listOf("HuWnmkY12H", "126HlkS", "klmsa", "KLÇasd67", "POTYRj0")
 
 
 
@@ -46,7 +49,9 @@ class Type : AppCompatActivity() {
         layoutCorrect = findViewById(R.id.layout_correct)
         layoutWrong =  findViewById(R.id.layout_wrong)
 
-        randWord =  helper.getRandString(easyString, 5)
+       // randWord =  helper.getRandString(easyString, 5)
+
+        randWord = gen.nextString();
         txtWord.text = randWord
 
 
@@ -62,7 +67,7 @@ class Type : AppCompatActivity() {
                 Handler().postDelayed({
 
                     layoutWrong.visibility = View.GONE
-                    randWord = helper.getRandString(easyString, 5)
+                    randWord = gen.nextString()
                     txtWord.text = randWord
                 }, 1000)
             }

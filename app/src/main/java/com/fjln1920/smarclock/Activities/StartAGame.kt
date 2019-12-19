@@ -22,11 +22,11 @@ class StartAGame : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_agame)
 
-        txtTime =  findViewById(R.id.txt_time)
-        txtTitle =  findViewById(R.id.txt_title)
+        txtTime = findViewById(R.id.txt_time)
+        txtTitle = findViewById(R.id.txt_title)
         val title = intent.getStringExtra("title")
         val time = intent.getStringExtra("time")
-        Log.e("time", time+title)
+        Log.e("time", time + title)
         txtTitle.text = title
         txtTime.text = time
         val intentToService = Intent(this, AlarmService::class.java)
@@ -36,9 +36,9 @@ class StartAGame : AppCompatActivity() {
 
         txtTime = findViewById(R.id.txt_time)
         txtTitle = findViewById(R.id.txt_title)
-       // Log.e("time", intent.getStringExtra("time"))
+        // Log.e("time", intent.getStringExtra("time"))
 
-        startGameBtn =  findViewById(R.id.start_game_btn)
+        startGameBtn = findViewById(R.id.start_game_btn)
 
         startGameBtn.setOnClickListener {
             startGame()
@@ -46,14 +46,11 @@ class StartAGame : AppCompatActivity() {
         }
 
 
-
-
-
     }
 
 
     fun startGame() {
-        val rndIndex = (0 until 2).random();
+        val rndIndex = (0 until 3).random();
         when (rndIndex) {
             0 -> {
                 intent = Intent(this, MemoryGame::class.java)
@@ -66,8 +63,13 @@ class StartAGame : AppCompatActivity() {
             2 -> {
                 intent = Intent(this, Type::class.java)
                 intent.putExtra("level", level)
-            }//if(rndIndex ==3)
-            //  intent =  Intent(this, MemoryGame::class.java)
+            }
+            3 ->{
+                intent = Intent(this, Repeat::class.java)
+                intent.putExtra("level", level)
+            }
+
+
         }//if(rndIndex ==3)
         //  intent =  Intent(this, MemoryGame::class.java)
         startActivity(intent)

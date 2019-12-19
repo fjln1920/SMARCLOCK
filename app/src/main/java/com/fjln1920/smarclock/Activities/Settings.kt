@@ -47,8 +47,8 @@ class Settings : AppCompatActivity() {
     private lateinit var btnS: TextView
 
 
-    private  var weakDays: String = ""
-    private  var alarm_title: String = "No Totle"
+    private  var weekDays: String = "Everyday"
+    private  var alarm_title: String = "No Title"
 
 
     // this to manage data base
@@ -95,7 +95,16 @@ class Settings : AppCompatActivity() {
             startActivity(intent)
             dataBaseManager = DataBaseManager(this)
             Log.e("hour",  alarmTimePiker.hour.toString())
-            alarm =  Alarm(System.currentTimeMillis(), alarmTimePiker.hour, alarmTimePiker.minute, alarm_title, AlarmLabelColor.BLUE.toString(), weakDays, 1)
+            val rndIndex = (0 until 3).random()
+            var collor = "";
+            if (rndIndex == 0){
+                collor =  AlarmLabelColor.BLUE.toString()
+            }else if(rndIndex ==1){
+                collor =  AlarmLabelColor.RED.toString()
+            }else{
+                collor =  AlarmLabelColor.GREEN.toString()
+            }
+            alarm =  Alarm(System.currentTimeMillis(), alarmTimePiker.hour, alarmTimePiker.minute, alarm_title, collor, weekDays, 1)
             dataBaseManager.insert(alarm)
 
 
@@ -168,8 +177,11 @@ class Settings : AppCompatActivity() {
     
 
     private fun setWeekDayBybtn(day: String, btn: TextView){
-        btn.setOnClickListener { 
-            weakDays+= "$day,"
+        btn.setOnClickListener {
+            if (weekDays.equals("Everyday")){
+              weekDays = ""
+            }
+            weekDays+= "$day,"
             btn.setTextColor(resources.getColor(R.color.colorGreen))
         }
     }

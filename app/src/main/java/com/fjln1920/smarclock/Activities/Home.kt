@@ -70,6 +70,7 @@ class Home : AppCompatActivity(), AlarmCalback {
         btnAdd.setOnClickListener {
             intent = Intent(this, Settings::class.java)
             startActivity(intent)
+           // finish()
         }
 
 

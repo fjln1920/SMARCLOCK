@@ -1,5 +1,6 @@
 package com.fjln1920.smarclock.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -9,6 +10,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.fjln1920.smarclock.R
+import com.fjln1920.smarclock.Utils.Constants
+import com.fjln1920.smarclock.service.AlarmService
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -21,7 +24,7 @@ class Repeat : AppCompatActivity() {
     private lateinit var triagle: ImageView
     private lateinit var cruz: ImageView
 
-    private val sequence1: ByteArray = byteArrayOf(0,1, 2, 3)
+    private val sequence1: ByteArray = byteArrayOf(0, 1, 2, 3)
     private val sequence2: ByteArray = byteArrayOf(2, 3, 1, 0)
     private val sequence3: ByteArray = byteArrayOf(0, 3, 2, 1)
     private val sequence4: ByteArray = byteArrayOf(0, 1, 3, 2)
@@ -39,23 +42,19 @@ class Repeat : AppCompatActivity() {
         setContentView(R.layout.activity_repeat)
         shapeImg = findViewById(R.id.repeat_shape_image_big)
         gridLayout = findViewById(R.id.gridlayout)
-        circle =  findViewById(R.id.circle)
-        square =  findViewById(R.id.square)
-        triagle =  findViewById(R.id.triangle)
-        cruz =  findViewById(R.id.cruz)
+        circle = findViewById(R.id.circle)
+        square = findViewById(R.id.square)
+        triagle = findViewById(R.id.triangle)
+        cruz = findViewById(R.id.cruz)
         //shapeImg.setImageResource(R.drawable.ic_circle)
-        var arrayToUse = getRandonSequenceArray()
 
-        showToMemorize(1500, arrayToUse)
-
-        verify(arrayToUse)
-
+        start()
 
 
     }
 
 
-    fun changeByShapeIndex(shape: Int, time: Long) {
+    private fun changeByShapeIndex(shape: Int, time: Long, arrayToUse: ByteArray) {
         Handler().postDelayed({
             shapeImg.setImageResource(shapeArray[shape])
         }, time)
@@ -71,18 +70,17 @@ class Repeat : AppCompatActivity() {
         }, 1500)
 
         for (index in 1..3)
-            changeByShapeIndex(arrayToUse[index].toInt(), (time+index*time))
+            changeByShapeIndex(arrayToUse[index].toInt(), (time + index * time), arrayToUse)
 
         Handler().postDelayed({
-            shapeImg.visibility =  View.GONE
+            shapeImg.visibility = View.GONE
 
-        },6*time-500)
+        }, 6 * time - 500)
 
         Handler().postDelayed({
 
-            gridLayout.visibility =  View.VISIBLE
-        },7*time-500)
-
+            gridLayout.visibility = View.VISIBLE
+        }, 7 * time - 500)
 
 
     }
@@ -98,48 +96,73 @@ class Repeat : AppCompatActivity() {
 
     }
 
-    private fun verify(arrayToUse: ByteArray){
+    private fun verify(arrayToUse: ByteArray) {
         var index = 0
 
-        if (index < 4){
+        if (index < 4) {
             circle.setOnClickListener {
-                if (arrayToUse[index].toInt() ==0){
+                if (arrayToUse[index].toInt() == 0) {
                     circle.setBackgroundResource(R.color.colorGreen)
                     index++
+                } else {
+                    square.setBackgroundResource(R.color.colorRed)
+                    start()
                 }
 
             }
 
 
             square.setOnClickListener {
-                if (arrayToUse[index].toInt() ==1){
+                if (arrayToUse[index].toInt() == 1) {
                     square.setBackgroundResource(R.color.colorGreen)
                     index++
+                } else {
+                    square.setBackgroundResource(R.color.colorRed)
+                    start()
                 }
 
             }
             triagle.setOnClickListener {
-                if (arrayToUse[index].toInt() ==2){
+                if (arrayToUse[index].toInt() == 2) {
                     triagle.setBackgroundResource(R.color.colorGreen)
                     index++
+                } else {
+                    triagle.setBackgroundResource(R.color.colorRed)
+                    start()
                 }
+
 
             }
 
             cruz.setOnClickListener {
-                if (arrayToUse[index].toInt() ==3){
+                if (arrayToUse[index].toInt() == 3) {
                     cruz.setBackgroundResource(R.color.colorGreen)
                     index++
+                } else {
+                    cruz.setBackgroundResource(R.color.colorRed)
+                    start()
                 }
 
             }
+        } else {
+            val intentToService = Intent(this, AlarmService::class.java)
+            intentToService.putExtra("ON_OFF", Constants.OFF_INTENT)
+            // intentToService.putExtra("AlarmId", intentToService.getStringExtra("AlarmId"))
+            startService(intentToService)
         }
 
     }
 
 
+    private fun start() {
+        val arrayToUse = getRandonSequenceArray()
+        gridLayout.visibility = View.GONE
+        shapeImg.visibility = View.VISIBLE
+        showToMemorize(1500, arrayToUse)
+        verify(arrayToUse)
 
 
+    }
 
 
 }

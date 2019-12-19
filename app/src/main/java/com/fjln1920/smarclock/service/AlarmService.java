@@ -12,6 +12,9 @@ import android.util.Log;
 
 //import com.example.leanh.receiver.AlarmReceiver;
 //import com.example.leanh.ultil.Constants;
+
+
+import com.fjln1920.Home;
 import com.fjln1920.smarclock.R;
 import com.fjln1920.smarclock.Utils.Constants;
 import com.fjln1920.smarclock.receiver.AlarmReceiver;
@@ -32,6 +35,7 @@ public class AlarmService extends Service {
         //TODO: processing on and off ringtone
         // get string from intent
         String on_Off = intent.getExtras().getString("ON_OFF");
+        Intent intentToGo = new  Intent(this, Home.class);
         switch (on_Off) {
             case Constants.ADD_INTENT: // if string like this set start media
                 // this is system default alarm alert uri
@@ -59,6 +63,35 @@ public class AlarmService extends Service {
                     // reset it
                     mediaPlayer.reset();
                 }
+
+                intentToGo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentToGo);
+                  /*  switch (intent.getStringExtra("option")) {
+                        case "equation":
+                            intentToGo = new Intent(this, SolveEquation.class);
+                            break;
+                        case "type":
+                            intentToGo = new Intent(this, Type.class);
+                            break;
+                        case "memory":
+                            intentToGo = new Intent(this, MemoryGame.class);
+                            break;
+                        case "shape":
+                            intentToGo = new Intent(this, Repeat.class);
+                            break;
+                    }
+
+                if (intentToGo != null){
+                    intentToGo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intentToGo);
+                }*/
+
+
+
+
+
+
+
                 break;
 
 
@@ -77,4 +110,7 @@ public class AlarmService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+
+
+
 }
